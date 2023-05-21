@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <style>
+    body{
+        background-color:  #69c4d98a !important;
+    }
+   </style>
+</head>
+<body >
+<div class="container">
+
+    <h1 class="text-center">URL Shortner</h1>
+    <form action="/UrlSchemas" method="post" class="form-inline my-4">
+
+        <label for="fullurl" class=""></label>
+        <input type="url" name="url" id="fullurl" placeholder="URL" class="form-control mr-2 mb-2 " >
+        <button type="submit" class="btn btn-success" >Shrink</button>
+    </form>
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th>Full url</th>
+                <th>Short Url</th>
+                <th>No of clicks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% Urlschemas.forEach(Urlschema=>{ %>
+
+                <tr>
+                    <td>
+                        <a href="<%= Urlschema.full %>"><%= Urlschema.full %></a>
+                    </td>
+                    <td><a href="<%= Urlschema.short %>"><%= Urlschema.short %></a></td>
+                    <td><%= Urlschema.clicks %></td>
+                </tr>
+
+           <% }) %>
+           
+        </tbody>
+
+    </table>
+</div>
+    
+
+</body>
+</html>
